@@ -1,0 +1,2 @@
+
+5<org.jetbrains.kotlinx:kotlinx-serialization-runtime>:kotlinx.serialization:kotlinx.serialization.builtins:!kotlinx.serialization.descriptors:kotlinx.serialization.encoding:kotlinx.serialization.internal:kotlinx.serialization.json:#kotlinx.serialization.json.internal:kotlinx.serialization.modules

@@ -1,0 +1,19 @@
+{
+  "main": "kotlin/smartype-smartype.js",
+  "devDependencies": {
+    "webpack": "4.42.1",
+    "webpack-cli": "3.3.11",
+    "source-map-loader": "1.0.0",
+    "dukat": "0.5.7"
+  },
+  "dependencies": {
+    "kotlin": "file:/Users/kbogdanovs/Documents/GitHub/ecommerce-demo/.smartype/build/js/packages_imported/kotlin/1.4.10",
+    "kotlin-test-js-runner": "file:/Users/kbogdanovs/Documents/GitHub/ecommerce-demo/.smartype/build/js/packages_imported/kotlin-test-js-runner/1.4.10",
+    "kotlin-test": "file:/Users/kbogdanovs/Documents/GitHub/ecommerce-demo/.smartype/build/js/packages_imported/kotlin-test/1.4.10"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": [],
+  "name": "smartype-smartype",
+  "version": "1.2.1"
+}

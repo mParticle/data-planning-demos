@@ -1,0 +1,19 @@
+function updateHero(){
+    const mpid = window.mParticle.Identity.getCurrentUser().getMPID();
+    const heroImage = document.querySelector("img.w-136")
+    const heroText = document.querySelector("p.tracking-widest");
+    window.fetch(`http://localhost:3001/users/${mpid}/skhero`)
+        .then(res => res.json())
+        .then(
+            res => {
+              console.log(res);  
+              if (res.image) {heroImage.src = res.image;}
+              if (res.name) {heroText.innerHTML = res.name;}
+            },
+            (error) => {
+                console.log("error");
+                ;
+            }
+        );
+};
+updateHero();

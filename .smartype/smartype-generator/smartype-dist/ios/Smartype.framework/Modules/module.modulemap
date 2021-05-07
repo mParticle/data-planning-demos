@@ -1,0 +1,6 @@
+framework module Smartype {
+    umbrella header "Smartype.h"
+
+    export *
+    module * { export * }
+}

@@ -1,0 +1,35 @@
+{
+  "version": "9",
+  "items": {
+    "4a80b099ab36638a008761e00f37358d": {
+      "src": "/Users/kbogdanovs/.gradle/caches/modules-2/files-2.1/com.mparticle/smartype-mparticle-js/1.2.1/27eaa718972415cbcdd0eb83e086a05484b50706/smartype-mparticle-js-1.2.1.klib"
+    },
+    "4129bb09517151bdd8152df120cadc59": {
+      "src": "/Users/kbogdanovs/.gradle/caches/modules-2/files-2.1/com.mparticle/smartype-api-js/1.2.1/ff264ee6f8e82e774ad3ae7dc3a31f8dd83521f2/smartype-api-js-1.2.1.klib"
+    },
+    "7f0a9e059ec57f8ae09e785401cb02bd": {
+      "src": "/Users/kbogdanovs/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-runtime-js/1.0-M1-1.4.0-rc/4d0b168685aae861da1036bf6abcb976661acf51/kotlinx-serialization-runtime-jsir-1.0-M1-1.4.0-rc.klib"
+    },
+    "f1dd431ab613c53e9bef19e9d191bdc9": {
+      "src": "/Users/kbogdanovs/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-js/1.4.10/d721bbca4a98590720bf73a212f4ad07b712ef60/kotlin-stdlib-js-1.4.10.jar",
+      "target": "kotlin/1.4.10"
+    },
+    "7fb1710e490d55afaad3b393d31e3a7f": {
+      "src": "/Users/kbogdanovs/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.4.10/6229be3465805c99db1142ad75e6c6ddeac0b04c/kotlin-stdlib-common-1.4.10.jar"
+    },
+    "e9e9cc5d29917e56e6d6411ee412a67c": {
+      "src": "/Users/kbogdanovs/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-js-runner/1.4.10/d7daeb8bc2a9cc872284d1aba70e19950cf0ecae/kotlin-test-js-runner-1.4.10.jar",
+      "target": "kotlin-test-js-runner/1.4.10"
+    },
+    "6651c5242305eafcd0177bee2f4d6b35": {
+      "src": "/Users/kbogdanovs/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-js/1.4.10/ccbf137a68302ed563bafb80d875f636b251d838/kotlin-test-js-1.4.10.jar",
+      "target": "kotlin-test/1.4.10"
+    },
+    "a01dc3d4ec43a41f4cd9a9e765b6fa0d": {
+      "src": "/Users/kbogdanovs/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-common/1.4.10/505c602601309cd1694a369aacb6df4dcf5c9a4/kotlin-test-common-1.4.10.jar"
+    },
+    "73f6e8a1718945224d91c3c22cb6841a": {
+      "src": "/Users/kbogdanovs/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-annotations-common/1.4.10/668f215c80a2a9f579c6c5c56a174c3b4299fb5c/kotlin-test-annotations-common-1.4.10.jar"
+    }
+  }
+}

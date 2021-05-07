@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "data_plan_id": "sofa_king_main",
+  "version_description": "",
+  "activated_environment": "development",
+  "created_on": "2021-01-29T04:29:17.52",
+  "created_by": "kbogdanovs@mparticle.com",
+  "last_modified_on": "2021-01-29T04:47:36.62",
+  "last_modified_by": "kbogdanovs@mparticle.com",
+  "version_document": {
+    "data_points": [
+      {
+        "description": "",
+        "match": {
+          "type": "custom_event",
+          "criteria": {
+            "event_name": "Add Customization - Color",
+            "custom_event_type": "other"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": false,
+                    "description": "",
+                    "properties": {
+                      "color": {
+                        "description": "",
+                        "enum": [
+                          "blue",
+                          "brown",
+                          "green",
+                          "lavender",
+                          "yellow"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": ["color"],
+                    "type": "object"
+                  }
+                },
+                "required": ["custom_attributes"],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "custom_event",
+          "criteria": {
+            "event_name": "Add Customization - Config",
+            "custom_event_type": "other"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": false,
+                    "description": "",
+                    "properties": {
+                      "config": {
+                        "description": "",
+                        "enum": ["two seater", "three seater", "sectional"],
+                        "type": "string"
+                      }
+                    },
+                    "required": ["config"],
+                    "type": "object"
+                  }
+                },
+                "required": ["custom_attributes"],
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

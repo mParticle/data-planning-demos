@@ -1,0 +1,7 @@
+builtins_platform=JS
+unique_name=com.mparticle\:smartype
+compiler_version=1.4.10
+depends=com.mparticle\:smartype-mparticle com.mparticle\:smartype-api org.jetbrains.kotlinx\:kotlinx-serialization-runtime kotlin
+abi_version=1.4.1
+metadata_version=1.4.0
+ir_version=1.0.0
