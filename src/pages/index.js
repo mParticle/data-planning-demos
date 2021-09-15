@@ -22,6 +22,8 @@ const Home = ({ data: gqlData,  }) => {
   
   const categories = data.slice(0, 2)
   const inventory = inventoryInfo.data.slice(0, 4)
+  let customAttributes = {"screen-url": window.location.href}
+  window.mParticle.logPageView('Home', customAttributes)
   return (
     <>
       <CartLink />

@@ -18,7 +18,7 @@ repositories {
 dependencies {
     implementation("com.github.ajalt:clikt:2.6.0")
     implementation("com.squareup:kotlinpoet:1.7.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${versions.serialization}")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${versions.serialization}")
     api(project(path=":smartype-api", configuration = "jvmDefault"))
 }
 java {
@@ -108,29 +108,26 @@ publishing {
             name = "staging"
             setUrl("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
-                username = System.getenv("sonatypeUsername")
-                password = System.getenv("sonatypePassword")
+                username = System.getenv("SONATYPE_USERNAME")
+                password = System.getenv("SONATYPE_PASSWORD")
             }
         }
         maven {
             name = "snapshot"
             setUrl("https://oss.sonatype.org/content/repositories/snapshots/")
             credentials {
-                username = System.getenv("sonatypeUsername")
-                password = System.getenv("sonatypePassword")
+                username = System.getenv("SONATYPE_USERNAME")
+                password = System.getenv("SONATYPE_PASSWORD")
             }
         }
     }
 }
 
-allprojects {
-    extra["signing.keyId"] = System.getenv("mavenSigningKeyId")
-    extra["signing.secretKeyRingFile"] = System.getenv("mavenSigningKeyRingFile")
-    extra["signing.password"] = System.getenv("mavenSigningKeyPassword")
-}
-
 signing {
-    if (System.getenv("mavenSigningKeyId") != null) {
+    val signingKey: String? by project
+    val signingPassword: String? by project
+    if (signingKey != null && signingPassword != null) {
+        useInMemoryPgpKeys(signingKey, signingPassword)
         sign(publishing.publications["sonatype"])
     }
 }

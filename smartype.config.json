@@ -1,14 +1,6 @@
 {
-  "iosOptions": {
-    "enabled": false
-  },
-  "androidOptions": {
-    "enabled": false
-  },
-  "webOptions": {
-    "enabled": true
-  },
-  "binaryOutputDirectory": "smartype-dist",
-  "apiSchemaFile": "./data-plans/sofa_king_main-v1.json",
-  "dedupEnums": false
+    "webOptions": {
+        "enabled": true
+    },
+    "apiSchemaFile": "data-plans/sofa_king_plan-v2.json"
 }

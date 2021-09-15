@@ -1,0 +1,1516 @@
+{
+  "version": 1,
+  "data_plan_id": "sofa_king_plan",
+  "version_description": "",
+  "activated_environment": "development",
+  "created_on": "2021-07-22T20:43:09.54",
+  "created_by": "sryan@mparticle.com",
+  "last_modified_on": "2021-09-14T18:55:46.383",
+  "last_modified_by": "sryan@mparticle.com",
+  "version_document": {
+    "data_points": [
+      {
+        "description": "",
+        "match": {
+          "type": "custom_event",
+          "criteria": {
+            "event_name": "Add Customization - Color",
+            "custom_event_type": "other"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": false,
+                    "description": "",
+                    "properties": {
+                      "color": {
+                        "description": "",
+                        "enum": [
+                          "blue",
+                          "brown",
+                          "green",
+                          "lavender",
+                          "yellow"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "color"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "custom_attributes"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "custom_event",
+          "criteria": {
+            "event_name": "Add Customization - Config",
+            "custom_event_type": "other"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": false,
+                    "description": "",
+                    "properties": {
+                      "config": {
+                        "description": "",
+                        "enum": [
+                          "two seater",
+                          "three seater",
+                          "sectional"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "config"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "custom_attributes"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/mod-leather-sofa"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/new-arrivals"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/cart"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "product_action",
+          "criteria": {
+            "action": "add_to_cart"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {},
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/checkout"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "product_action",
+          "criteria": {
+            "action": "purchase"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {},
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/thetis-gray-love-seat"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/timber-gray-sofa"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/chairs"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/living-room"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/carmel-brown-sofa"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/markus-green-love-seat"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/mod-leather-sofa/sofas"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/jameson-jack-lounger"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/sofas"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/mod-leather-sofa/living-room"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/mod-leather-sofa/new-arrivals"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/timber-gray-sofa/on-sale"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/thetis-gray-love-seat/chairs"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/thetis-gray-love-seat/new-arrivals"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/thetis-gray-love-seat/chairs/chairs"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/sven-tan-matte"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": true,
+                    "description": "",
+                    "properties": {
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "hostname": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "User Attributes",
+        "match": {
+          "type": "user_attributes",
+          "criteria": {}
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "additionalProperties": false,
+            "properties": {
+              "$FirstName": {
+                "description": "",
+                "type": "string"
+              },
+              "$State": {
+                "description": "",
+                "type": "string"
+              },
+              "$Address": {
+                "description": "",
+                "type": "string"
+              },
+              "$Zip": {
+                "description": "",
+                "type": "number"
+              },
+              "$City": {
+                "description": "",
+                "type": "string"
+              },
+              "$LastName": {
+                "description": "",
+                "type": "string"
+              },
+              "Marketing Opt-In": {
+                "description": "",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "Marketing Opt-In"
+            ]
+          }
+        }
+      },
+      {
+        "description": "User Identities",
+        "match": {
+          "type": "user_identities",
+          "criteria": {}
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "additionalProperties": false,
+            "properties": {
+              "email": {
+                "description": "",
+                "type": "string"
+              },
+              "customerid": {
+                "description": "",
+                "type": "string"
+              },
+              "ios_idfv": {
+                "description": "Anonymous identity",
+                "type": "string"
+              },
+              "ios_idfa": {
+                "description": "Anonymous identity",
+                "type": "string"
+              },
+              "android_aaid": {
+                "description": "Anonymous identity",
+                "type": "string"
+              },
+              "android_uuid": {
+                "description": "Anonymous identity",
+                "type": "string"
+              }
+            },
+            "required": []
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "/on-sale"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {},
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "product_action",
+          "criteria": {
+            "action": "remove_from_cart"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "product_action": {
+                    "additionalProperties": false,
+                    "description": "",
+                    "properties": {
+                      "products": {
+                        "description": "",
+                        "items": {
+                          "additionalProperties": false,
+                          "description": "",
+                          "properties": {
+                            "id": {
+                              "description": "",
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "pattern": "^[a-zA-Z0-9_]*$"
+                            },
+                            "name": {
+                              "description": "",
+                              "type": "string"
+                            },
+                            "quantity": {
+                              "description": "",
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            "price": {
+                              "description": "",
+                              "type": "number",
+                              "minimum": 0
+                            },
+                            "variant": {
+                              "description": "",
+                              "type": "string"
+                            },
+                            "category": {
+                              "description": "",
+                              "type": "string"
+                            },
+                            "brand": {
+                              "description": "",
+                              "type": "string"
+                            },
+                            "position": {
+                              "description": "",
+                              "type": "number"
+                            },
+                            "coupon_code": {
+                              "description": "",
+                              "type": "string"
+                            },
+                            "custom_attributes": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "brand": {
+                                  "description": "",
+                                  "type": "string"
+                                },
+                                "categories": {
+                                  "description": "",
+                                  "type": "string"
+                                },
+                                "config": {
+                                  "description": "Preferred configuration.",
+                                  "type": "string",
+                                  "enum": [
+                                    "two seater",
+                                    "three seater",
+                                    "sectional"
+                                  ]
+                                },
+                                "color": {
+                                  "description": "Preferred color.",
+                                  "type": "string",
+                                  "enum": [
+                                    "brown",
+                                    "blue",
+                                    "green",
+                                    "lavender",
+                                    "yellow"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "brand",
+                                "categories",
+                                "config",
+                                "color"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "quantity",
+                            "price",
+                            "variant",
+                            "category",
+                            "brand",
+                            "position",
+                            "coupon_code"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  },
+                  "custom_attributes": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "screen-url": {
+                        "description": "URL of the current screen.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "screen-url"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "User attempted to log into account (in addition to the Identity API call).",
+        "match": {
+          "type": "custom_event",
+          "criteria": {
+            "event_name": "Log in -- Attempted",
+            "custom_event_type": "other"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "login-method": {
+                        "description": "Login method used.",
+                        "type": "string",
+                        "enum": [
+                          "fb",
+                          "google",
+                          "new"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "login-method"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "User successfully logged into account.",
+        "match": {
+          "type": "custom_event",
+          "criteria": {
+            "event_name": "Log in -- Successful",
+            "custom_event_type": "other"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "login-method": {
+                        "description": "Login method used.",
+                        "type": "string",
+                        "enum": [
+                          "fb",
+                          "google",
+                          "new"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "login-method"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "User failed to log into account.",
+        "match": {
+          "type": "custom_event",
+          "criteria": {
+            "event_name": "Log in -- Failed",
+            "custom_event_type": "other"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "login-method": {
+                        "description": "Login method used.",
+                        "type": "string",
+                        "enum": [
+                          "fb",
+                          "google",
+                          "new"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "login-method"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "User set marketing consent",
+        "match": {
+          "type": "custom_event",
+          "criteria": {
+            "event_name": "Set Marketing Consent",
+            "custom_event_type": "other"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "consent_to_marketing": {
+                        "description": "",
+                        "type": "boolean"
+                      },
+                      "screen-url": {
+                        "description": "URL of the current screen.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "consent_to_marketing",
+                      "screen-url"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "Category"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "screen-url": {
+                        "description": "URL of the current screen.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "screen-url"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "Home"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "screen-url": {
+                        "description": "URL of the current screen.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "screen-url"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "description": "",
+        "match": {
+          "type": "screen_view",
+          "criteria": {
+            "screen_name": "Product"
+          }
+        },
+        "validator": {
+          "type": "json_schema",
+          "definition": {
+            "properties": {
+              "data": {
+                "additionalProperties": true,
+                "properties": {
+                  "custom_attributes": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "categories": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "screen-url": {
+                        "description": "URL of the current screen.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "categories",
+                      "screen-url"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

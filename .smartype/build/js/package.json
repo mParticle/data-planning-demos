@@ -1,13 +1,14 @@
 {
+  "name": "smartype",
+  "version": "unspecified",
   "private": true,
   "workspaces": [
     "packages/smartype-smartype"
   ],
+  "resolutions": {},
   "devDependencies": {},
   "dependencies": {},
   "peerDependencies": {},
   "optionalDependencies": {},
-  "bundledDependencies": [],
-  "name": "smartype",
-  "version": "unspecified"
+  "bundledDependencies": []
 }

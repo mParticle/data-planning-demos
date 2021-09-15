@@ -104,7 +104,7 @@ kotlin {
                     api(project(":smartype-api"))
                     api(project(":smartype-receivers:smartype-mparticle"))
                 }
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${versions.serialization}")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${versions.serialization}")
             }
         }
         val commonTest by getting
@@ -146,8 +146,7 @@ kotlin {
 }
 listOf("bootstrap", "update").forEach { type ->
     task<Exec>("carthage${type.capitalize()}") {
-        group = "carthage"
-        executable = "carthage"
+        commandLine("$rootDir/gradle/carthage.sh")
         args(
             type,
             "--platform", "iOS",

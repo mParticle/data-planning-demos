@@ -16,9 +16,9 @@ import Select from "react-select"
 import userRecords from "../../providers/users"
 
 const customStyles = {
-  control: (_, { selectProps: { width }}) => ({
-    width: "200px"
-  })
+  control: (_, { selectProps: { width } }) => ({
+    width: "200px",
+  }),
 }
 
 toast.configure({
@@ -31,37 +31,45 @@ const logo = require("../images/logo.png")
 
 const users = []
 Object.keys(userRecords).forEach(key => {
-  users.push({value: key, label: key})
+  users.push({ value: key, label: key })
 })
 
 function switchUser(data) {
-  const newUser = userRecords[data.value];
-  console.log(newUser);
+  const newUser = userRecords[data.value]
+  console.log(newUser)
   const identityRequest = {
     userIdentities: {
       email: newUser.email,
-      customerid: newUser.cc    
+      customerid: newUser.cc,
+    },
+  }
+  const identityCallback = function(result) {
+    if (result.getUser()) {
+      console.log("user logged in")
     }
-  };
-  const identityCallback = function(result) { 
-    if (result.getUser()) { 
-      console.log("user logged in");
-    } 
-  };
-  window.mParticle.Identity.login(identityRequest, identityCallback);
+  }
+
+  window.mParticle.logEvent("Log in -- Successful", window.mParticle.EventType.Other)
+
+  // window.mParticle.Identity.login(identityRequest, identityCallback)
 }
 
 function switchConsent(data) {
   const user = window.mParticle.Identity.getCurrentUser()
-  const consented = data.value === "accept";
-  const marketing_consent = window.mParticle.Consent.createGDPRConsent(
-      consented,
-      Date.now(),
-      "marketing_agreement_v4"
-  );
-  const consentState = window.mParticle.Consent.createConsentState();
-  consentState.addGDPRConsentState("marketing", marketing_consent);
-  user.setConsentState(consentState);
+  const consented = data.value === "accept"
+  // const marketing_consent = window.mParticle.Consent.createGDPRConsent(
+  //   consented,
+  //   Date.now(),
+  //   "marketing_agreement_v4"
+  // )
+  let customAttributes = {
+    "consent_to_marketing": true,
+    "screen-url": "est ut"
+  };
+  window.mParticle.logEvent('Set Marketing Consent', window.mParticle.EventType.Other, customAttributes)
+  // const consentState = window.mParticle.Consent.createConsentState()
+  // consentState.addGDPRConsentState("marketing", marketing_consent)
+  // user.setConsentState(consentState)
 }
 
 class Layout extends React.Component {
@@ -118,8 +126,7 @@ class Layout extends React.Component {
                           </Link>
                         ))}
                       </div>
-                      
-                      
+
                       {/* <div className="flex flex-1 justify-end pr-4 relative">
                         <Link to="/cart">
                           <FaShoppingCart />
@@ -144,18 +151,21 @@ class Layout extends React.Component {
                       Copyright © 2020 JAMstack Ecommerce. All rights reserved.
                     </span>
                     <div className="flex flex-1 justify-end">
-                    <Select 
-                            placeholder={"Select User"}
-                            styles={customStyles}
-                            options={users}
-                            onChange={switchUser}
-                    />
-                    <Select 
-                            placeholder={"Accept Marketing"}
-                            styles={customStyles}
-                            options={[{value: "accept", label: "Accept"}, {value: "deny", label: "Deny"}]}
-                            onChange={switchConsent}
-                    />
+                      <Select
+                        placeholder={"Select User"}
+                        styles={customStyles}
+                        options={users}
+                        onChange={switchUser}
+                      />
+                      <Select
+                        placeholder={"Accept Marketing"}
+                        styles={customStyles}
+                        options={[
+                          { value: "accept", label: "Accept" },
+                          { value: "deny", label: "Deny" },
+                        ]}
+                        onChange={switchConsent}
+                      />
                     </div>
                   </div>
                 </footer>

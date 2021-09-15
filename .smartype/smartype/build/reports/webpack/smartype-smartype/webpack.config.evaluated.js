@@ -29,14 +29,15 @@
   },
   entry: {
     main: [
-      '/Users/kbogdanovs/Documents/GitHub/ecommerce-demo/.smartype/build/js/packages/smartype-smartype/kotlin/smartype-smartype.js'
+      '/Users/sryan/Desktop/mparticle-data-planning-api-demos/.smartype/build/js/packages/smartype-smartype/kotlin/smartype-smartype.js'
     ]
   },
   output: {
-    path: '/Users/kbogdanovs/Documents/GitHub/ecommerce-demo/.smartype/smartype/build/distributions',
+    path: '/Users/sryan/Desktop/mparticle-data-planning-api-demos/.smartype/smartype/build/distributions',
     filename: [Function: filename],
     library: 'smartype',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
+    globalObject: 'this'
   },
   devtool: 'source-map',
   stats: {

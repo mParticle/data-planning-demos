@@ -14,10 +14,10 @@ const api = new smartype.SmartypeApi()
 api.addReceiver(smartype.mParticleReceiver())
 
 
-const ItemView = props => {
+const ItemView = props => {    
   const [numberOfitems, updateNumberOfItems] = useState(1)
   const item = props.pageContext.content
-  const { price, image, name, description } = item
+  const { price, image, name, description, id, categories } = item
   const {
     context: { addToCart },
   } = props
@@ -44,6 +44,7 @@ const ItemView = props => {
         )
       )
     )
+    console.log('Handle color change')
     api.send(message)
   }
 
@@ -60,9 +61,19 @@ const ItemView = props => {
 
   function addItemToCart(item) {
     item["quantity"] = numberOfitems
-    addToCart(item)
+    addToCart(item)    
+    window.mParticle.eCommerce.logProductAction('mParticle.ProductAction.add_to_cart', item)
   }
 
+  let customAttributes = {
+    id: id,
+    name: name,
+    categories: categories,
+    "screen-url": props.location.pathname
+  }
+  console.log(categories)
+  window.mParticle.logPageView('Product', customAttributes)
+  
   function increment() {
     updateNumberOfItems(numberOfitems + 1)
   }

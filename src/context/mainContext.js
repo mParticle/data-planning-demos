@@ -138,6 +138,8 @@ class ContextProviderComponent extends React.Component {
       item.price, // Price
       item.quantity // Quantity
     )
+    
+    window.mParticle.eCommerce.logProductAction('mParticle.ProductAction.remove_from_cart', product)
 
     var transactionAttributes = {
       Id: Math.random()
@@ -150,15 +152,8 @@ class ContextProviderComponent extends React.Component {
       categories: item.categories.toString(),
     }
 
-    var customFlags = null
-    window.mParticle.eCommerce.logProductAction(
-      window.mParticle.ProductActionType.RemoveFromCart,
-      product,
-      customAttributes,
-      customFlags,
-      transactionAttributes
-    )
-
+    var customFlags = null    
+    
     this.forceUpdate()
   }
 
