@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { toast } from "react-toastify"
+import "../styles/custom.css"
 
 const mainQuery = graphql`
   query {
@@ -83,6 +84,7 @@ class ContextProviderComponent extends React.Component {
     )
     toast("Successfully added item to cart!", {
       position: toast.POSITION.TOP_LEFT,
+      className: "custom.css"
     })
 
     //mParticle Tracking
@@ -112,11 +114,15 @@ class ContextProviderComponent extends React.Component {
       customFlags,
       transactionAttributes
     )
-
+    toast.success(`AddToCart product action sent to mParticle for ${item.name}`, {
+      position: toast.POSITION.TOP_RIGHT,
+      className: "success-toast"
+    })
     this.forceUpdate()
   }
 
   removeFromCart = item => {
+    console.log('removeFromCart clicked')
     const storageState = JSON.parse(window.localStorage.getItem(STORAGE_KEY))
     let { cart } = storageState
     cart = cart.filter(c => c.id !== item.id)
@@ -139,7 +145,20 @@ class ContextProviderComponent extends React.Component {
       item.quantity // Quantity
     )
     
-    window.mParticle.eCommerce.logProductAction('mParticle.ProductAction.remove_from_cart', product)
+    // window.mParticle.eCommerce.logProductAction('mParticle.ProductAction.remove_from_cart', product)
+
+    window.mParticle.eCommerce.logProductAction(
+      window.mParticle.ProductActionType.RemoveFromCart,
+      product,
+      customAttributes,
+      customFlags,
+      transactionAttributes
+    )
+
+    toast(`RemoveFromCart product action sent to mParticle for ${item.name}`, {
+      position: toast.POSITION.TOP_RIGHT,    
+      className: "success-toast"
+    })
 
     var transactionAttributes = {
       Id: Math.random()

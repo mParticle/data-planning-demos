@@ -50,6 +50,13 @@ const Cart = ({ context }) => {
       customFlags,
       transactionAttributes
     )
+    window.mParticle.eCommerce.logProductAction(
+      window.mParticle.ProductActionType.AddToCart,
+      product,
+      customAttributes,
+      customFlags,
+      transactionAttributes
+    )
   }
 
   function decrement(item) {
@@ -139,13 +146,12 @@ const Cart = ({ context }) => {
                           </p>
                         </div>
                         <div
-                          role="button"
-                          onClick={() => removeFromCart(item)}
+                          role="button"                          
                           className="
                             m-0 ml-10 text-gray-900 text-s cursor-pointer
                             "
                         >
-                          <FaTimes />
+                          <FaTimes onClick={() => removeFromCart(item)}/>
                         </div>
                       </div>
 

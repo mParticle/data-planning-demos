@@ -14,6 +14,7 @@ import { toast } from "react-toastify"
 import { colors } from "../theme"
 import Select from "react-select"
 import userRecords from "../../providers/users"
+import "../styles/custom.css"
 
 const customStyles = {
   control: (_, { selectProps: { width } }) => ({
@@ -34,24 +35,65 @@ Object.keys(userRecords).forEach(key => {
   users.push({ value: key, label: key })
 })
 
-function switchUser(data) {
+function switchUser(data) {  
   const newUser = userRecords[data.value]
-  console.log(newUser)
+  
   const identityRequest = {
     userIdentities: {
+      first_name: newUser.first_name,
       email: newUser.email,
       customerid: newUser.cc,
+      zip: newUser.zip
     },
   }
-  const identityCallback = function(result) {
+  console.log(identityRequest.userIdentities)
+  var identityCallback = function(result) {
     if (result.getUser()) {
-      console.log("user logged in")
+      let eventMessage = "Log in -- Successful"
+      window.mParticle.logEvent(
+        eventMessage,
+        window.mParticle.EventType.Other
+      )
+      toast(`Event to mParticle: ${eventMessage}`, {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "success-toast"
+      })
+      window.mParticle.Identity.getCurrentUser().setUserAttribute(
+        "$FirstName",
+        identityRequest.userIdentities.first_name
+      )
+      window.mParticle.Identity.getCurrentUser().setUserAttribute(
+        "$LastName",
+        identityRequest.userIdentities.last_name
+      )
+      window.mParticle.Identity.getCurrentUser().setUserAttribute(
+        "$Zip",
+        identityRequest.userIdentities.zip
+      )
+      window.mParticle.Identity.getCurrentUser().setUserAttribute(
+        "$Email",
+        identityRequest.userIdentities.email
+      )
+      toast(`Attributes for user ${identityRequest.userIdentities.first_name} sent to mParticle!`, {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "success-toast"
+      })
+    } else {
+      window.mParticle.logEvent(
+        "Log in -- Failed",
+        window.mParticle.EventType.Other
+      )
+      toast(`Event sent to mParticle: Log in -- Failed`, {
+        position: toast.POSITION.TOP_LEFT,
+        className: "success-toast"
+      })
     }
   }
-
-  window.mParticle.logEvent("Log in -- Successful", window.mParticle.EventType.Other)
-
-  // window.mParticle.Identity.login(identityRequest, identityCallback)
+  window.mParticle.logEvent(
+    "Log in -- Attempted",
+    window.mParticle.EventType.Other
+  )
+  window.mParticle.Identity.login(identityRequest, identityCallback)
 }
 
 function switchConsent(data) {
@@ -63,10 +105,18 @@ function switchConsent(data) {
   //   "marketing_agreement_v4"
   // )
   let customAttributes = {
-    "consent_to_marketing": true,
-    "screen-url": "est ut"
-  };
-  window.mParticle.logEvent('Set Marketing Consent', window.mParticle.EventType.Other, customAttributes)
+    consent_to_marketing: true,
+    screen_url: window.location.href,
+  }
+  window.mParticle.logEvent(
+    "Set Marketing Consent",
+    window.mParticle.EventType.Other,
+    customAttributes
+  )
+  toast(`Event sent to mParticle: Set Marketing Consent`, {
+    position: toast.POSITION.TOP_RIGHT,
+    className: "success-toast"
+  })
   // const consentState = window.mParticle.Consent.createConsentState()
   // consentState.addGDPRConsentState("marketing", marketing_consent)
   // user.setConsentState(consentState)

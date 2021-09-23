@@ -7,6 +7,8 @@ import Button from "../components/Button"
 import Image from "../components/Image"
 import QuantityPicker from "../components/QuantityPicker"
 import Select from "react-select"
+import { toast } from "react-toastify";
+import "../styles/custom.css";
 
 //Smartype
 import * as smartype from "../../smartype-dist/web/smartype"
@@ -27,6 +29,10 @@ const ItemView = props => {
     window.mParticle.logEvent("Add Customization - Config", window.mParticle.EventType.Other, {
       config: selection.value
     })
+    toast.success("Custom event sent to mParticle! Add Customization - Config", {
+      position: toast.POSITION.TOP_RIGHT,
+      className: "success-toast"
+    })
   }
 
   const configOptions = [
@@ -44,9 +50,14 @@ const ItemView = props => {
         )
       )
     )
-    console.log('Handle color change')
+    toast.success("Color event sent to mParticle: Add Customization - Color", {
+      position: toast.POSITION.TOP_RIGHT,
+      className: "success-toast"
+    })
     api.send(message)
   }
+
+
 
   const colorOptions = [
     { value: new smartype.AddCustomizationColorDataCustomAttributesColor().BROWN(), label: "Brown" },

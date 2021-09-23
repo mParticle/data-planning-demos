@@ -1,3 +1,5 @@
+import { red } from "chalk"
+
 const colors = {
   primary: "#000000",
   secondary: "#00baa6",
