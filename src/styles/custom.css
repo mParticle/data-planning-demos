@@ -1,0 +1,20 @@
+.success-toast {
+  background-color: #000 !important;
+  font-family: Roboto !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 140% !important;
+  letter-spacing: normal !important;
+  color: #ffffff;  
+  min-width: 375px !important;
+  height: 90px;
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0px !important;
+  right: 6em !important;
+}
+
+p {
+    margin-bottom: 0 !important;
+}

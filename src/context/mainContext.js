@@ -2,6 +2,7 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { toast } from "react-toastify"
 import "../styles/custom.css"
+import ToastSuccess from "../components/heroComponents/ToastSuccess"
 
 const mainQuery = graphql`
   query {
@@ -84,7 +85,6 @@ class ContextProviderComponent extends React.Component {
     )
     toast("Successfully added item to cart!", {
       position: toast.POSITION.TOP_LEFT,
-      className: "custom.css"
     })
 
     //mParticle Tracking
@@ -114,15 +114,23 @@ class ContextProviderComponent extends React.Component {
       customFlags,
       transactionAttributes
     )
-    toast.success(`AddToCart product action sent to mParticle for ${item.name}`, {
-      position: toast.POSITION.TOP_RIGHT,
-      className: "success-toast"
-    })
+
+    toast(
+      <ToastSuccess
+        eventName="Add To Cart"
+        eventCategory="Commerce Action"
+        product={item.name}
+      ></ToastSuccess>,
+      {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "success-toast",
+      }
+    )
     this.forceUpdate()
   }
 
   removeFromCart = item => {
-    console.log('removeFromCart clicked')
+    console.log("removeFromCart clicked")
     const storageState = JSON.parse(window.localStorage.getItem(STORAGE_KEY))
     let { cart } = storageState
     cart = cart.filter(c => c.id !== item.id)
@@ -136,7 +144,6 @@ class ContextProviderComponent extends React.Component {
       })
     )
 
-
     //mParticle Tracking
     var product = window.mParticle.eCommerce.createProduct(
       item.name, // Name
@@ -144,7 +151,7 @@ class ContextProviderComponent extends React.Component {
       item.price, // Price
       item.quantity // Quantity
     )
-    
+
     // window.mParticle.eCommerce.logProductAction('mParticle.ProductAction.remove_from_cart', product)
 
     window.mParticle.eCommerce.logProductAction(
@@ -155,10 +162,17 @@ class ContextProviderComponent extends React.Component {
       transactionAttributes
     )
 
-    toast(`RemoveFromCart product action sent to mParticle for ${item.name}`, {
-      position: toast.POSITION.TOP_RIGHT,    
-      className: "success-toast"
-    })
+    toast(
+      <ToastSuccess
+        eventName="Remove From Cart"
+        eventCategory="Commerce Action"
+        product={item.name}
+      ></ToastSuccess>,
+      {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "success-toast",
+      }
+    )
 
     var transactionAttributes = {
       Id: Math.random()
@@ -171,8 +185,8 @@ class ContextProviderComponent extends React.Component {
       categories: item.categories.toString(),
     }
 
-    var customFlags = null    
-    
+    var customFlags = null
+
     this.forceUpdate()
   }
 

@@ -7,32 +7,44 @@ import Button from "../components/Button"
 import Image from "../components/Image"
 import QuantityPicker from "../components/QuantityPicker"
 import Select from "react-select"
-import { toast } from "react-toastify";
-import "../styles/custom.css";
+import { toast } from "react-toastify"
+import "../styles/custom.css"
+import ToastSuccess from "../components/heroComponents/ToastSuccess"
 
 //Smartype
 import * as smartype from "../../smartype-dist/web/smartype"
 const api = new smartype.SmartypeApi()
 api.addReceiver(smartype.mParticleReceiver())
 
-
-const ItemView = props => {    
+const ItemView = props => {
   const [numberOfitems, updateNumberOfItems] = useState(1)
   const item = props.pageContext.content
   const { price, image, name, description, id, categories } = item
   const {
     context: { addToCart },
   } = props
-  
+
   // Add Customization - Config (Standard collection)
   function handleConfigChange(selection) {
-    window.mParticle.logEvent("Add Customization - Config", window.mParticle.EventType.Other, {
-      config: selection.value
-    })
-    toast.success("Custom event sent to mParticle! Add Customization - Config", {
-      position: toast.POSITION.TOP_RIGHT,
-      className: "success-toast"
-    })
+    window.mParticle.logEvent(
+      "Add Customization - Config",
+      window.mParticle.EventType.Other,
+      {
+        config: selection.value,
+      }
+    )
+
+    toast.success(
+      <ToastSuccess
+        eventName="Add Customization -- Config"
+        eventCategory="Custom Event"
+        product={item.name}
+      ></ToastSuccess>,
+      {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "success-toast",
+      }
+    )
   }
 
   const configOptions = [
@@ -40,51 +52,73 @@ const ItemView = props => {
     { value: "three seater", label: "3-Seater" },
     { value: "sectional", label: "Sectional" },
   ]
-  
+
   // Add Customization - Color (Smartype)
   function handleColorChange(selection) {
     const message = api.addCustomizationColor(
       new smartype.AddCustomizationColorData(
-        new smartype.AddCustomizationColorDataCustomAttributes(
-          selection.value
-        )
+        new smartype.AddCustomizationColorDataCustomAttributes(selection.value)
       )
     )
-    toast.success("Color event sent to mParticle: Add Customization - Color", {
-      position: toast.POSITION.TOP_RIGHT,
-      className: "success-toast"
-    })
+
+    toast.success(
+      <ToastSuccess
+        eventName="Add Customization -- Color"
+        eventCategory="Custom Event"
+        product={item.name}
+      ></ToastSuccess>,
+      {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "success-toast",
+      }
+    )
     api.send(message)
   }
 
-
-
   const colorOptions = [
-    { value: new smartype.AddCustomizationColorDataCustomAttributesColor().BROWN(), label: "Brown" },
-    { value: new smartype.AddCustomizationColorDataCustomAttributesColor().BLUE(), label: "Blue" },
-    { value: new smartype.AddCustomizationColorDataCustomAttributesColor().GREEN(), label: "Green" },
-    { value: new smartype.AddCustomizationColorDataCustomAttributesColor().LAVENDER(), label: "Lavender" },
-    { value: new smartype.AddCustomizationColorDataCustomAttributesColor().YELLOW(), label: "Yellow" },
+    {
+      value: new smartype.AddCustomizationColorDataCustomAttributesColor().BROWN(),
+      label: "Brown",
+    },
+    {
+      value: new smartype.AddCustomizationColorDataCustomAttributesColor().BLUE(),
+      label: "Blue",
+    },
+    {
+      value: new smartype.AddCustomizationColorDataCustomAttributesColor().GREEN(),
+      label: "Green",
+    },
+    {
+      value: new smartype.AddCustomizationColorDataCustomAttributesColor().LAVENDER(),
+      label: "Lavender",
+    },
+    {
+      value: new smartype.AddCustomizationColorDataCustomAttributesColor().YELLOW(),
+      label: "Yellow",
+    },
   ]
-  
+
   const defaultColor = { label: "Blue", value: "blue" }
   const defaultConfig = { label: "2-Seater", value: "2-seater" }
 
   function addItemToCart(item) {
     item["quantity"] = numberOfitems
-    addToCart(item)    
-    window.mParticle.eCommerce.logProductAction('mParticle.ProductAction.add_to_cart', item)
+    addToCart(item)
+    window.mParticle.eCommerce.logProductAction(
+      "mParticle.ProductAction.add_to_cart",
+      item
+    )
   }
 
   let customAttributes = {
     id: id,
     name: name,
     categories: categories,
-    "screen-url": props.location.pathname
+    "screen-url": props.location.pathname,
   }
   console.log(categories)
-  window.mParticle.logPageView('Product', customAttributes)
-  
+  window.mParticle.logPageView("Product", customAttributes)
+
   function increment() {
     updateNumberOfItems(numberOfitems + 1)
   }
@@ -93,10 +127,6 @@ const ItemView = props => {
     if (numberOfitems === 1) return
     updateNumberOfItems(numberOfitems - 1)
   }
-
-
-
-  
 
   return (
     <>
