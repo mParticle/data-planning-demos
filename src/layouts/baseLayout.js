@@ -78,7 +78,7 @@ function switchUser(data) {
         "$Email",
         identityRequest.userIdentities.email
       )
-      
+
     } else {
       window.mParticle.logEvent(
         "Log in -- Failed",
@@ -105,7 +105,7 @@ function switchUser(data) {
 }
 
 function switchConsent(data) {
-  const user = window.mParticle.Identity.getCurrentUser()
+  const user = window.mParticle.Identity.getCurrentUser()  
   const consented = data.value === "accept"
   // const marketing_consent = window.mParticle.Consent.createGDPRConsent(
   //   consented,
@@ -125,7 +125,7 @@ function switchConsent(data) {
     <ToastSuccess
       eventName="Set Marketing Consent"
       eventCategory="Custom Event"
-      product={user.first_name}
+      product="current user"
     ></ToastSuccess>,
     {
       position: toast.POSITION.TOP_RIGHT,

@@ -10,6 +10,7 @@ const CategoryView = props => {
       content: { items = [] },
     },
   } = props
+
   return (
     <>
       <CartLink />

@@ -6,6 +6,9 @@ import { FaLongArrowAltLeft } from "react-icons/fa"
 import { Link } from "gatsby"
 import Image from "../components/Image"
 import uuid from "uuid/v4"
+import { toast } from "react-toastify"
+import "../styles/custom.css"
+import ToastSuccess from "../components/heroComponents/ToastSuccess"
 
 import {
   CardElement,
@@ -157,6 +160,17 @@ const Checkout = ({ context }) => {
       null,
       null,
       transactionAttributes
+    )
+    toast(
+      <ToastSuccess
+        eventName="Purchase"
+        eventCategory="Commerce Event"
+        product={`Transaction ID: ${transactionAttributes.Id}`}
+      ></ToastSuccess>,
+      {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "success-toast",
+      }
     )
     clearCart()
   }

@@ -1,4 +1,7 @@
 import React from "react"
+import "../styles/custom.css"
+import ToastSuccess from "../components/heroComponents/ToastSuccess"
+import { toast } from "react-toastify"
 
 import SEO from "../components/seo"
 import {
@@ -24,6 +27,17 @@ const Home = ({ data: gqlData,  }) => {
   const inventory = inventoryInfo.data.slice(0, 4)
   let customAttributes = {"screen-url": window.location.href}
   window.mParticle.logPageView('Home', customAttributes)
+  toast(
+    <ToastSuccess
+      eventName="Remove From Cart"
+      eventCategory="Commerce Action"
+      product={`Home: "${window.location.pathname}"`}
+    ></ToastSuccess>,
+    {
+      position: toast.POSITION.TOP_RIGHT,
+      className: "success-toast",
+    }
+  )
   return (
     <>
       <CartLink />

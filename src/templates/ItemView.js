@@ -115,10 +115,19 @@ const ItemView = props => {
     name: name,
     categories: categories,
     "screen-url": props.location.pathname,
-  }
-  console.log(categories)
+  }  
   window.mParticle.logPageView("Product", customAttributes)
-
+  toast(
+    <ToastSuccess
+      eventName="Product"
+      eventCategory="Screen View"
+      product={customAttributes.name}
+    ></ToastSuccess>,
+    {
+      position: toast.POSITION.TOP_RIGHT,
+      className: "success-toast",
+    }
+  )
   function increment() {
     updateNumberOfItems(numberOfitems + 1)
   }
