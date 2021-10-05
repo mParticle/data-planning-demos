@@ -17,6 +17,9 @@ import { titleIfy, slugify } from "../../utils/helpers"
 
 import { graphql } from "gatsby"
 
+// Check if window is defined 
+const isBrowser = typeof window !== "undefined"
+
 const Home = ({ data: gqlData,  }) => {
   const {
     inventoryInfo,
@@ -25,8 +28,12 @@ const Home = ({ data: gqlData,  }) => {
   
   const categories = data.slice(0, 2)
   const inventory = inventoryInfo.data.slice(0, 4)
-  let customAttributes = {"screen-url": window.location.href}
-  window.mParticle.logPageView('Home', customAttributes)
+  
+  if (isBrowser) {
+    let customAttributes = {"screen-url": window.location.href}
+    window.mParticle.logPageView('Home', customAttributes)
+  }
+  
   toast(
     <ToastSuccess
       eventName="Remove From Cart"
