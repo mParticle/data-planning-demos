@@ -11,6 +11,9 @@ import { toast } from "react-toastify"
 import "../styles/custom.css"
 import ToastSuccess from "../components/heroComponents/ToastSuccess"
 
+// Check if window is defined 
+const isBrowser = typeof window !== "undefined"
+
 //Smartype
 import * as smartype from "../../smartype-dist/web/smartype"
 const api = new smartype.SmartypeApi()
@@ -116,7 +119,11 @@ const ItemView = props => {
     categories: categories,
     "screen-url": props.location.pathname,
   }  
-  window.mParticle.logPageView("Product", customAttributes)
+
+  if (isBrowser) {
+    window.mParticle.logPageView("Product", customAttributes)
+  }
+  
   toast(
     <ToastSuccess
       eventName="Product"
