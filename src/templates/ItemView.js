@@ -11,13 +11,13 @@ import { toast } from "react-toastify"
 import "../styles/custom.css"
 import ToastSuccess from "../components/heroComponents/ToastSuccess"
 
-// Check if window is defined 
-const isBrowser = typeof window !== "undefined"
-
 //Smartype
 import * as smartype from "../../smartype-dist/web/smartype"
 const api = new smartype.SmartypeApi()
 api.addReceiver(smartype.mParticleReceiver())
+
+// Check if window is defined 
+const isBrowser = typeof window !== "undefined"
 
 const ItemView = props => {
   const [numberOfitems, updateNumberOfItems] = useState(1)

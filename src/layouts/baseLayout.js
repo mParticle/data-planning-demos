@@ -17,6 +17,8 @@ import userRecords from "../../providers/users"
 import ToastSuccess from "../components/heroComponents/ToastSuccess"
 import "../styles/custom.css"
 
+const isBrowser = typeof window !== "undefined"
+
 const customStyles = {
   control: (_, { selectProps: { width } }) => ({
     width: "200px",
@@ -45,96 +47,98 @@ function switchUser(data) {
       zip: newUser.zip,
     },
   }
-  console.log(identityRequest.userIdentities)
+
   var identityCallback = function(result) {
     if (result.getUser()) {
       let eventMessage = "Log in -- Successful"
-      window.mParticle.logEvent(eventMessage, window.mParticle.EventType.Other)
+      if (isBrowser) {
+        window.mParticle.logEvent(
+          eventMessage,
+          window.mParticle.EventType.Other
+        )
 
-      toast(
-        <ToastSuccess
-          eventName="Log in -- Successful"
-          eventCategory="Commerce Action"
-          product={newUser.first_name}
-        ></ToastSuccess>,
-        {
-          position: toast.POSITION.TOP_RIGHT,
-          className: "success-toast",
+        toast(
+          <ToastSuccess
+            eventName="Log in -- Successful"
+            eventCategory="Commerce Action"
+            product={newUser.first_name}
+          ></ToastSuccess>,
+          {
+            position: toast.POSITION.TOP_RIGHT,
+            className: "success-toast",
+          }
+        )
+        window.mParticle.Identity.getCurrentUser().setUserAttribute(
+          "$FirstName",
+          identityRequest.userIdentities.first_name
+        )
+        window.mParticle.Identity.getCurrentUser().setUserAttribute(
+          "$LastName",
+          identityRequest.userIdentities.last_name
+        )
+        window.mParticle.Identity.getCurrentUser().setUserAttribute(
+          "$Zip",
+          identityRequest.userIdentities.zip
+        )
+        window.mParticle.Identity.getCurrentUser().setUserAttribute(
+          "$Email",
+          identityRequest.userIdentities.email
+        )
+      } else {
+        if (isBrowser) {
+          window.mParticle.logEvent(
+            "Log in -- Failed",
+            window.mParticle.EventType.Other
+          )
+          toast(
+            <ToastSuccess
+              eventName="Log in -- Failed"
+              eventCategory="Commerce Action"
+              product={newUser.first_name}
+            ></ToastSuccess>,
+            {
+              position: toast.POSITION.TOP_LEFT,
+              className: "success-toast",
+            }
+          )
         }
-      )
-      window.mParticle.Identity.getCurrentUser().setUserAttribute(
-        "$FirstName",
-        identityRequest.userIdentities.first_name
-      )
-      window.mParticle.Identity.getCurrentUser().setUserAttribute(
-        "$LastName",
-        identityRequest.userIdentities.last_name
-      )
-      window.mParticle.Identity.getCurrentUser().setUserAttribute(
-        "$Zip",
-        identityRequest.userIdentities.zip
-      )
-      window.mParticle.Identity.getCurrentUser().setUserAttribute(
-        "$Email",
-        identityRequest.userIdentities.email
-      )
-
-    } else {
-      window.mParticle.logEvent(
-        "Log in -- Failed",
-        window.mParticle.EventType.Other
-      )
-      toast(
-        <ToastSuccess
-          eventName="Log in -- Failed"
-          eventCategory="Commerce Action"
-          product={newUser.first_name}
-        ></ToastSuccess>,
-        {
-          position: toast.POSITION.TOP_LEFT,
-          className: "success-toast",
-        }
-      )
+      }
     }
   }
-  window.mParticle.logEvent(
-    "Log in -- Attempted",
-    window.mParticle.EventType.Other
-  )
-  window.mParticle.Identity.login(identityRequest, identityCallback)
+  if (isBrowser) {
+    window.mParticle.logEvent(
+      "Log in -- Attempted",
+      window.mParticle.EventType.Other
+    )
+    window.mParticle.Identity.login(identityRequest, identityCallback)
+  }
 }
 
 function switchConsent(data) {
-  const user = window.mParticle.Identity.getCurrentUser()  
-  const consented = data.value === "accept"
-  // const marketing_consent = window.mParticle.Consent.createGDPRConsent(
-  //   consented,
-  //   Date.now(),
-  //   "marketing_agreement_v4"
-  // )
-  let customAttributes = {
-    consent_to_marketing: true,
-    screen_url: window.location.href,
-  }
-  window.mParticle.logEvent(
-    "Set Marketing Consent",
-    window.mParticle.EventType.Other,
-    customAttributes
-  )
-  toast(
-    <ToastSuccess
-      eventName="Set Marketing Consent"
-      eventCategory="Custom Event"
-      product="current user"
-    ></ToastSuccess>,
-    {
-      position: toast.POSITION.TOP_RIGHT,
-      className: "success-toast",
+  if (isBrowser) {
+    const user = window.mParticle.Identity.getCurrentUser()
+    const consented = data.value === "accept"
+    let customAttributes = {
+      consent_to_marketing: true,
+      screen_url: window.location.href,
     }
-  )
-  // const consentState = window.mParticle.Consent.createConsentState()
-  // consentState.addGDPRConsentState("marketing", marketing_consent)
-  // user.setConsentState(consentState)
+    window.mParticle.logEvent(
+      "Set Marketing Consent",
+      window.mParticle.EventType.Other,
+      customAttributes
+    )
+    toast(
+      <ToastSuccess
+        eventName="Set Marketing Consent"
+        eventCategory="Custom Event"
+        product="current user"
+      ></ToastSuccess>,
+      {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "success-toast",
+      }
+    )
+  }
 }
 
 class Layout extends React.Component {

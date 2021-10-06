@@ -28,23 +28,24 @@ const Home = ({ data: gqlData,  }) => {
   
   const categories = data.slice(0, 2)
   const inventory = inventoryInfo.data.slice(0, 4)
-  
+
   if (isBrowser) {
     let customAttributes = {"screen-url": window.location.href}
     window.mParticle.logPageView('Home', customAttributes)
+    toast(
+      <ToastSuccess
+        eventName="Remove From Cart"
+        eventCategory="Commerce Action"
+        product={`Home: "${window.location.pathname}"`}
+      ></ToastSuccess>,
+      {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "success-toast",
+      }
+    )
   }
   
-  toast(
-    <ToastSuccess
-      eventName="Remove From Cart"
-      eventCategory="Commerce Action"
-      product={`Home: "${window.location.pathname}"`}
-    ></ToastSuccess>,
-    {
-      position: toast.POSITION.TOP_RIGHT,
-      className: "success-toast",
-    }
-  )
+
   return (
     <>
       <CartLink />
