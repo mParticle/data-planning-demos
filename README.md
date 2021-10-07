@@ -1,6 +1,6 @@
 ## Run this app locally
 
-After cloning this Clone this repo locally:
+After cloning this repository locally:
 1) `cd` into the app directory
 2) Run `npm install` to install dependencies
 3) Run `gatsby develop` to start the app on `localhost:8000`
