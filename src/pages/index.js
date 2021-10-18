@@ -34,8 +34,8 @@ const Home = ({ data: gqlData,  }) => {
     window.mParticle.logPageView('Home', customAttributes)
     toast(
       <ToastSuccess
-        eventName="Remove From Cart"
-        eventCategory="Commerce Action"
+        eventName=""
+        eventCategory="Screen View"
         product={`Home: "${window.location.pathname}"`}
       ></ToastSuccess>,
       {

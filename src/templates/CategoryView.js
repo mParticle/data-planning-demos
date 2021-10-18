@@ -2,8 +2,28 @@ import React from "react"
 import ListItem from "../components/ListItem"
 import { titleIfy, slugify } from "../../utils/helpers"
 import CartLink from "../components/CartLink"
+import { toast } from "react-toastify"
+import "../styles/custom.css"
+import ToastSuccess from "../components/heroComponents/ToastSuccess"
 
 const CategoryView = props => {
+  const isBrowser = typeof window !== "undefined"
+  if (isBrowser) {
+    console.log(props)
+    let customAttributes = props.pageContext.title
+    window.mParticle.logPageView("Screen View", customAttributes)
+    toast(
+      <ToastSuccess
+        eventName="Category"
+        eventCategory="Screen View"
+        product={props.pageContext.title}
+      ></ToastSuccess>,
+      {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "success-toast",
+      }
+    )
+  }
   const {
     pageContext: {
       title,

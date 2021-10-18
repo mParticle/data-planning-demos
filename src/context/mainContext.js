@@ -115,17 +115,6 @@ class ContextProviderComponent extends React.Component {
       transactionAttributes
     )
 
-    toast(
-      <ToastSuccess
-        eventName="Add To Cart"
-        eventCategory="Commerce Action"
-        product={item.name}
-      ></ToastSuccess>,
-      {
-        position: toast.POSITION.TOP_RIGHT,
-        className: "success-toast",
-      }
-    )
     this.forceUpdate()
   }
 

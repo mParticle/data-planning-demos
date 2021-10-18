@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Popup from "reactjs-popup"
 
 import { SiteContext, ContextProviderComponent } from "../context/mainContext"
@@ -26,7 +26,7 @@ const ItemView = props => {
   const {
     context: { addToCart },
   } = props
-
+  
   // Add Customization - Config (Standard collection)
   function handleConfigChange(selection) {
     window.mParticle.logEvent(
@@ -111,6 +111,17 @@ const ItemView = props => {
       "mParticle.ProductAction.add_to_cart",
       item
     )
+    toast(
+      <ToastSuccess
+        eventName="Add To Cart"
+        eventCategory="Commerce Action"
+        product={item.name}
+      ></ToastSuccess>,
+      {
+        position: toast.POSITION.TOP_RIGHT,
+        className: "success-toast",
+      }
+    )
   }
 
   let customAttributes = {
@@ -119,22 +130,7 @@ const ItemView = props => {
     categories: categories,
     "screen-url": props.location.pathname,
   }  
-
-  if (isBrowser) {
-    window.mParticle.logPageView("Product", customAttributes)
-  }
   
-  toast(
-    <ToastSuccess
-      eventName="Product"
-      eventCategory="Screen View"
-      product={customAttributes.name}
-    ></ToastSuccess>,
-    {
-      position: toast.POSITION.TOP_RIGHT,
-      className: "success-toast",
-    }
-  )
   function increment() {
     updateNumberOfItems(numberOfitems + 1)
   }
@@ -208,6 +204,28 @@ const ItemView = props => {
 }
 
 function ItemViewWithContext(props) {
+  useEffect(() => {
+    if (isBrowser) {
+      console.log(props.pageContext.content)
+      let customAttributes = {
+        id: props.pageContext.content.id,
+        name: props.pageContext.content.name, 
+        categories: props.pageContext.content.categories
+      }
+      window.mParticle.logPageView("Screen View", customAttributes)
+      toast(
+        <ToastSuccess
+          eventName="Product"
+          eventCategory="Screen View"
+          product={customAttributes.name}
+        ></ToastSuccess>,
+        {
+          position: toast.POSITION.TOP_RIGHT,
+          className: "success-toast",
+        }
+      )
+    }
+  })
   return (
     <ContextProviderComponent>
       <SiteContext.Consumer>
