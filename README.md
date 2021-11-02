@@ -1,6 +1,5 @@
 ### mParticle Data Planning sample app
-To illustrate the mParticle Data Plan Builder in action within a live website, we’ve implemented the [retail data plan template](https://docs.google.com/spreadsheets/d/1rEOSgNRfV7YRs_xbm2NJ_DEOBPTEJ2RIZRr0Y-TqnK8/) in a sample eCommerce web application. As you explore the [live site](https://dataplanningdemo.gatsbyjs.io/), each time you perform an action resulting in an event being sent to mParticle, you will see the event and attribute names displayed in a pop-up box:
-!(https://images.prismic.io/mparticle/8bc1471b-5628-4c98-ad84-35ad5e0474bd_image1.gif)
+To illustrate the mParticle Data Plan Builder in action within a live website, we’ve implemented the [retail data plan template](https://docs.google.com/spreadsheets/d/1rEOSgNRfV7YRs_xbm2NJ_DEOBPTEJ2RIZRr0Y-TqnK8/) in a sample eCommerce web application. As you explore the [live site](https://dataplanningdemo.gatsbyjs.io/), each time you perform an action resulting in an event being sent to mParticle, you will see the event and attribute names displayed in a pop-up box.
 
 ## Run this app locally
 After cloning this repository locally:
