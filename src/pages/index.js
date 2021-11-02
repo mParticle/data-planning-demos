@@ -30,7 +30,7 @@ const Home = ({ data: gqlData,  }) => {
   const inventory = inventoryInfo.data.slice(0, 4)
 
   if (isBrowser) {
-    let customAttributes = {"screen-url": window.location.href}
+    let customAttributes = {"screen_url": window.location.href}
     window.mParticle.logPageView('Home', customAttributes)
     toast(
       <ToastSuccess

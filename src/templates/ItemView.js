@@ -52,7 +52,7 @@ const ItemView = props => {
 
   const configOptions = [
     { value: "two seater", label: "2-Seater" },
-    { value: "three seater", label: "3-Seater" },
+    { value: "three seeter", label: "3-Seater" },
     { value: "sectional", label: "Sectional" },
   ]
 
@@ -108,7 +108,7 @@ const ItemView = props => {
     item["quantity"] = numberOfitems
     addToCart(item)
     window.mParticle.eCommerce.logProductAction(
-      "mParticle.ProductAction.add_to_cart",
+      window.mParticle.ProductActionType.add_to_cart,
       item
     )
     toast(
@@ -128,7 +128,7 @@ const ItemView = props => {
     id: id,
     name: name,
     categories: categories,
-    "screen-url": props.location.pathname,
+    "screen_url": props.location.pathname,
   }  
   
   function increment() {
@@ -212,7 +212,7 @@ function ItemViewWithContext(props) {
         name: props.pageContext.content.name, 
         categories: props.pageContext.content.categories
       }
-      window.mParticle.logPageView("Screen View", customAttributes)
+      window.mParticle.logPageView("Product", customAttributes)
       toast(
         <ToastSuccess
           eventName="Product"

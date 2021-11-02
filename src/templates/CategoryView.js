@@ -11,7 +11,7 @@ const CategoryView = props => {
   if (isBrowser) {
     console.log(props)
     let customAttributes = props.pageContext.title
-    window.mParticle.logPageView("Screen View", customAttributes)
+    window.mParticle.logPageView("Category", customAttributes)
     toast(
       <ToastSuccess
         eventName="Category"

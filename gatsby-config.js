@@ -66,8 +66,8 @@ module.exports = {
     {
       resolve: "@mparticle/gatsby-plugin-mparticle",
       options: {
-        apiKey: "us1-3d27dc70f8ca514099bd2e6608321523", 
-        logPageViews: true,
+        apiKey: "YOUR API KEY HERE", 
+        logPageViews: false,
         config: {
           isDevelopmentMode: true,
           dataPlan: {

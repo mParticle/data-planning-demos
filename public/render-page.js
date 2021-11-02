@@ -158,8 +158,8 @@ var plugins = [{
   plugin: __webpack_require__(/*! ./node_modules/@mparticle/gatsby-plugin-mparticle/gatsby-ssr */ "./node_modules/@mparticle/gatsby-plugin-mparticle/gatsby-ssr.js"),
   options: {
     "plugins": [],
-    "apiKey": "us1-3d27dc70f8ca514099bd2e6608321523",
-    "logPageViews": true,
+    "apiKey": "us1-b2e6472f42ca414799ec642563782f60",
+    "logPageViews": false,
     "config": {
       "isDevelopmentMode": true,
       "dataPlan": {
@@ -44228,14 +44228,6 @@ class ContextProviderComponent extends react__WEBPACK_IMPORTED_MODULE_1___defaul
       };
       var customFlags = null;
       window.mParticle.eCommerce.logProductAction(window.mParticle.ProductActionType.AddToCart, product, customAttributes, customFlags, transactionAttributes);
-      Object(react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_heroComponents_ToastSuccess__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        eventName: "Add To Cart",
-        eventCategory: "Commerce Action",
-        product: item.name
-      }), {
-        position: react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].POSITION.TOP_RIGHT,
-        className: "success-toast"
-      });
       this.forceUpdate();
     };
 
